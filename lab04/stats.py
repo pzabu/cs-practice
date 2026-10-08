@@ -3,7 +3,7 @@ def parse_record(line):
     d = {}
     if line.count(';')<3: raise ValueError("Полей не ровно 3")
     c, t, date = line.split(";")    
-    if !c or !date:
+    if not(c) or not(date):
         raise ValueError("Город или дата пустые")
     d['city'] = c
     try: 
