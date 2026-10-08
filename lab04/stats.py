@@ -1,7 +1,7 @@
 import sys
 def parse_record(line):
     d = {}
-    if line.count(';')<3: raise ValueError("Полей не ровно 3")
+    if line.count(';')<2: raise ValueError("Полей не ровно 3")
     c, t, date = line.split(";")    
     if not(c) or not(date):
         raise ValueError("Город или дата пустые")
