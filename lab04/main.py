@@ -4,5 +4,7 @@ lines = sys.stdin.read().splitlines()
 res = read_valid(lines)
 print(len(res))
 print(len(lines)-len(res))
-print(average_by_city(res)[warmest_city(res)])
-
+try:
+    print(average_by_city(res)[warmest_city(res)])
+except KeyError:
+    pass
