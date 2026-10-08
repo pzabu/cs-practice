@@ -5,6 +5,6 @@ res = read_valid(lines)
 print(len(res))
 print(len(lines)-len(res))
 try:
-    print(average_by_city(res)[warmest_city(res)])
+    print(f'{average_by_city(res)[warmest_city(res)]:.1f}')
 except KeyError:
     pass
