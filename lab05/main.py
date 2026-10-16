@@ -9,12 +9,13 @@ def main():
 
     with open(filename, encoding="utf-8") as log:
         for line in log:
-            line = line.strip()
-            if not line:
+            if not line or not line.strip():
+                broken_count += 1
+                total_parsed += 1
                 continue
 
             total_parsed += 1
-            parts = line.split(" ", 2)
+            parts = line.strip().split(" ", 2)
 
             if len(parts) == 3 and parts[1] in {"DEBUG", "INFO", "WARNING", "ERROR"}:
                 if parts[1] == "ERROR":
@@ -31,11 +32,11 @@ def main():
 
     with open(filename, encoding="utf-8") as log:
         top_errs = top_errors(log, 3)
-
     report_text = format_report(counts, top_errs)
 
     with open("report.txt", "w", encoding="utf-8") as out:
         out.write(report_text)
+
 
 if __name__ == "__main__":
     main()
