@@ -14,10 +14,9 @@ def deepest_path(paths):
     ghoul = ''
     for l in paths:
         if l.count('/') > ghoul.count('/'):
-            res = l
-        elif l.count('/') == ghoul.count('/'):
-            if l < ghoul:
-                ghoul = l
+            ghoul = l
+        elif l.count('/') == ghoul.count('/') and l> ghoul:
+            ghoul = l
     return ghoul
 
 def human_size(n):
