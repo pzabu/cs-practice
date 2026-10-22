@@ -8,5 +8,15 @@ def count_by_extension(paths):
         res[key] = res.get(key, 0) + 1
     return res
 
+def deepest_path(paths):
+    ghoul = ''
+    for l in paths:
+        if l.count('/') > ghoul.count('/'):
+            res = l
+        elif l.count('/') == ghoul.count('/'):
+            if l < ghoul:
+                ghoul = l
+    return ghoul
+
 
 
