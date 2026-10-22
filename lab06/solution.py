@@ -26,4 +26,7 @@ def human_size(n):
         c+=1
     return f"{n} {sizes[c]}"
 
+print(human_size(900))
+print(human_size(1536))
+print(human_size(5 * 1024 * 1024))
 
