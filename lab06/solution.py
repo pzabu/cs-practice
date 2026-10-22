@@ -5,6 +5,8 @@ def count_by_extension(paths):
         if part.count('.')<1:
             continue
         key = part.split('.')[-1]
+        if key == '':
+            key = ' '
         res[key] = res.get(key, 0) + 1
     return res
 
