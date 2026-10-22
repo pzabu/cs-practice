@@ -18,5 +18,12 @@ def deepest_path(paths):
                 ghoul = l
     return ghoul
 
+def human_size(n):
+    sizes = ['Б','КБ','МБ','ГБ','ТБ']
+    c =0    
+    while n>=1024:
+        n/=1024
+        c+=1
+    return f"{n} {sizes[c]}"
 
 
