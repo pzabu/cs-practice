@@ -3,10 +3,10 @@ def count_by_extension(paths):
     for part in paths:
         part = part.lower()
         if part.count('.')<1:
+            key = ''
+            res[key] = res.get(key, 0) + 1
             continue
         key = part.split('.')[-1]
-        if key == '':
-            key = ' '
         res[key] = res.get(key, 0) + 1
     return res
 
@@ -15,7 +15,7 @@ def deepest_path(paths):
     for l in paths:
         if l.count('/') > ghoul.count('/'):
             ghoul = l
-        elif l.count('/') == ghoul.count('/') and l> ghoul:
+        elif l.count('/') == ghoul.count('/') and l < ghoul:
             ghoul = l
     return ghoul
 
