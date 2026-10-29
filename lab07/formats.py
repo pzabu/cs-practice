@@ -30,4 +30,8 @@ def parse_settings(lines):
         return d
     return None
 
-
+def merge_by_key(rows, extra, key):
+    return [
+        {**extra.get(row.get(key), {}), **row}
+        for row in rows
+    ]
