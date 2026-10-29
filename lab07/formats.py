@@ -9,4 +9,25 @@ def csv_to_records(text):
         a.append(d)
     return a
 
+def parse_settings(lines):
+    d = dict()
+    f = False
+    cur_zag = ''
+    for i in range(len(lines)-1):
+        l = lines[i]
+        if l[0] == "#":
+            continue
+        f = True
+        if ':' in l:       
+            l = l.split(':')
+            if len(l) == 2:
+                d[l[0]] = d.get(l[1])
+            else:
+                cur_zag = l[0]
+        else:
+            d[cur_zag] = d.get(l)
+    if f:
+        return d
+    return None
+
 
