@@ -1,3 +1,4 @@
+import json
 def csv_to_records(text):
     zag = text[0].split(',')
     a = []
@@ -35,3 +36,5 @@ def merge_by_key(rows, extra, key):
         {**extra.get(row.get(key), {}), **row}
         for row in rows
     ]
+def records_to_json(records: list[dict]) -> str:
+    return json.dumps(records, indent=2, sort_keys=True, ensure_ascii=False)
